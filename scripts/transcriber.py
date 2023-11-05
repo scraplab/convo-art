@@ -9,7 +9,7 @@ Created on Mon May  8 13:35:48 2023
 import whisper
 import torch
 
-model = whisper.load_model("small")
+model = whisper.load_model("tiny")
 
 if torch.cuda.is_available():
     device="cuda"
