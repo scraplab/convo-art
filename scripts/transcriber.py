@@ -11,11 +11,14 @@ import torch
 
 model = whisper.load_model("tiny")
 
+# if using m1/m2 use mps as device
 if torch.cuda.is_available():
     device="cuda"
 else:
     device="cpu"
 
+# look at whisper docs to ask about multithreading internally
+# I'm only giving it one thread
 def transcribe(audio):
     audio = whisper.load_audio(audio)
     audio = whisper.pad_or_trim(audio) 
