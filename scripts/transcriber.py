@@ -19,6 +19,8 @@ elif torch.cuda.is_available() and torch.cuda.device_count() > 1:
 else:
     device="cpu"
 
+print(f"Using {device} device")
+
 # look at whisper docs to ask about multithreading internally
 # I'm only giving it one thread
 def transcribe(audio):
