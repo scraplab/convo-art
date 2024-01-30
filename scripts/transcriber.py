@@ -14,6 +14,8 @@ model = whisper.load_model("tiny")
 # if using m1/m2 use mps as device
 if torch.cuda.is_available():
     device="cuda"
+elif torch.cuda.is_available() and torch.cuda.device_count() > 1:
+    device="mps"
 else:
     device="cpu"
 
